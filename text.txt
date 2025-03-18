@@ -1,0 +1,61 @@
+User : Username, password, role
+
+
+faction : 
+
+name = varchar(255) 
+regime = varchar(255)
+type = varchar(255)
+image = varchar(255)
+couleur = varchar(255)
+capitale = varchar(255)
+description = text
+dirigeantes_heros = INT 
+guildes_link = INT 
+heros_link = INT 
+
+
+Guilde :
+
+name = varchar(255) 
+type = varchar(255) 
+description = text
+image = varchar(255) 
+visibility = ENUM ('secrete', 'visible', 'discrete')
+faction = INT
+dirigeante = INT 
+hero = INT
+
+
+Race :
+
+name = varchar(255) 
+taille = varchar(255) 
+image = varchar(255) 
+description = text
+hero = int 
+
+hero : 
+
+name = varchar(255) 
+age = varchar(255) 
+image = varchar(255) 
+taille = varchar(255) 
+fonction = varchar(255) 
+description = text
+faction = int
+guilde = int 
+race = int
+hero = int (les hero qui sont on le meme contexte que eux)
+contexte = int
+
+Contexte : 
+
+titre = varchar(255) 
+description = text
+hero = int (peut en avoir plusieurs)
+
+pour rajouter les drapeaux :
+
+ALTER TABLE `factions`
+ADD `flag` VARCHAR(255) NULL AFTER `image`;
