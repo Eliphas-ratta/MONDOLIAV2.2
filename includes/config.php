@@ -1,8 +1,10 @@
 <?php
-$host = "localhost";        // Adresse du serveur MySQL local (Wamp)
-$dbname = "mondolxsai";     // Nom de la base de données locale
-$username = "root";         // Utilisateur par défaut sur Wamp
-$password = "root";             // Mot de passe vide par défaut sur Wamp
+$host = "mondolxsai.mysql.db";  // Adresse du serveur MySQL OVH
+ $dbname = "mondolxsai";         // Nom de la base de données OVH
+ $username = "mondolxsai";       // Nom d'utilisateur MySQL OVH
+ $password = "Archaon1886";      // Mot de passe MySQL OVH
+
+    // Mot de passe MySQL OVH
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -11,6 +13,11 @@ try {
     die("Erreur de connexion : " . $e->getMessage());
 }
 
-// Chemin de base en local
-define('BASE_URL', '/MONDOLIAV2.2/');
+
+
+
+
+define('BASE_URL', 'https://mondolia.ovh/');
+// Mets le bon chemin de ton projet
+
 ?>

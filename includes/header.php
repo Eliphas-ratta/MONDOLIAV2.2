@@ -1,5 +1,21 @@
 <?php
-session_start();
+ini_set('session.save_path', '/tmp');
+ini_set('session.gc_maxlifetime', 3600); // 1h de durée de vie des sessions
+ini_set('session.cookie_lifetime', 3600); // 1h de durée de vie du cookie de session
+
+session_set_cookie_params([
+    'lifetime' => 3600,
+    'path' => '/',
+    'domain' => $_SERVER['HTTP_HOST'],
+    'secure' => isset($_SERVER['HTTPS']), // Active si HTTPS est utilisé
+    'httponly' => true,
+    'samesite' => 'Lax'
+]);
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once __DIR__ . '/config.php'; // Connexion à la base de données
 
 // Vérifier si l'utilisateur est bien connecté

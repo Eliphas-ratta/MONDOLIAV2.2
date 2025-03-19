@@ -1,0 +1,18 @@
+# Activer les réécritures d'URL
+RewriteEngine On
+
+# Forcer les cookies de session sécurisés et persistants
+php_value session.cookie_httponly 1
+php_value session.cookie_secure 1
+php_value session.use_only_cookies 1
+php_value session.gc_maxlifetime 86400
+php_value session.cookie_lifetime 86400
+php_value session.save_path "/tmp"
+
+# Gestion des URLs propres (si applicable)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Empêcher le listing des répertoires
+Options -Indexes
